@@ -7,7 +7,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Configuración general
+# Configuración general del dashboard
 st.set_page_config(
     page_title="University Data Dashboard",
     layout="wide",
@@ -15,7 +15,23 @@ st.set_page_config(
 )
 
 # ==============================================================
-# 1️⃣ Cargar datos
+# 🧱 Encabezado
+# ==============================================================
+
+st.title("🎓 University Student Data Dashboard")
+st.markdown("### Data Visualization and Dashboard Deployment – Activity 1")
+st.markdown("""
+**📚 Course:** Mineria de Datos  
+**👨‍🏫 Professor:** José Escorcia-Gutiérrez, Ph.D.  
+**👥 Team Members:**  
+- Kevin David Gallardo  
+- Mauricio Carrillo
+""")
+
+st.markdown("---")
+
+# ==============================================================
+# 📂 1️⃣ Cargar datos
 # ==============================================================
 
 @st.cache_data
@@ -25,25 +41,18 @@ def load_data():
 
 df = load_data()
 
-st.title("🎓 University Student Data Dashboard")
-st.markdown("### Data Mining - Visualization & Dashboard Deployment")
+st.sidebar.header("🔎 Data Filters")
 
 # ==============================================================
-# 2️⃣ Filtros interactivos
+# 🎛️ 2️⃣ Filtros interactivos
 # ==============================================================
 
-col1, col2, col3 = st.columns(3)
 years = sorted(df["Year"].unique())
-terms = df["Term"].unique()
+terms = sorted(df["Term"].unique())
 
-with col1:
-    selected_year = st.selectbox("Select Year", options=["All"] + list(map(str, years)))
-with col2:
-    selected_term = st.selectbox("Select Term", options=["All"] + list(terms))
-with col3:
-    st.markdown("")
+selected_year = st.sidebar.selectbox("Select Year", options=["All"] + [str(y) for y in years])
+selected_term = st.sidebar.selectbox("Select Term", options=["All"] + list(terms))
 
-# Aplicar filtros
 filtered_df = df.copy()
 
 if selected_year != "All":
@@ -52,7 +61,7 @@ if selected_term != "All":
     filtered_df = filtered_df[filtered_df["Term"] == selected_term]
 
 # ==============================================================
-# 3️⃣ KPIs principales
+# 🔢 3️⃣ KPIs principales
 # ==============================================================
 
 avg_retention = filtered_df["Retention Rate (%)"].mean()
@@ -67,7 +76,7 @@ col3.metric("👩‍🎓 Total Enrolled Students", f"{total_enrollment}")
 st.markdown("---")
 
 # ==============================================================
-# 4️⃣ Visualizaciones
+# 📊 4️⃣ Visualizaciones
 # ==============================================================
 
 sns.set_style("whitegrid")
@@ -106,17 +115,22 @@ ax4.set_xlabel("Department")
 st.pyplot(fig4)
 
 # ==============================================================
-# 5️⃣ Conclusión
+# 🧠 5️⃣ Conclusiones e insights
 # ==============================================================
 
 st.markdown("---")
 st.markdown("""
-**🧠 Insights principales:**
-- La tasa de retención ha mostrado una tendencia positiva a lo largo de los años.
-- La satisfacción estudiantil también ha mejorado consistentemente.
-- Las matrículas se distribuyen de manera equilibrada entre *Spring* y *Fall*.
-- Ingeniería sigue siendo el departamento con mayor número de estudiantes matriculados.
+### 🧠 Key Insights
+- The university’s **retention rate** has shown a gradual improvement over time.
+- **Student satisfaction** levels have increased steadily, suggesting positive institutional changes.
+- Enrollment levels between **Spring and Fall** are relatively balanced.
+- The **Engineering department** consistently leads in total enrollment.
+
+### 💡 Suggested Actions
+- Keep strengthening academic support programs to maintain retention growth.
+- Conduct satisfaction surveys focused on departments with lower retention.
+- Use this dashboard as a tool for yearly academic planning and performance tracking.
 
 ---
-Desarrollado con ❤️ usando **Streamlit**, **Pandas** y **Seaborn**.
+Developed by **Kevin David Gallardo** and **Mauricio Carrillo** using **Streamlit**, **Pandas**, and **Seaborn**.
 """)
