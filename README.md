@@ -1,31 +1,38 @@
-# 🎓 University Student Data Dashboard
+# 🌸 Proyecto Final – Clasificación de Iris
 
-This project analyzes university student data to visualize key trends in:
-- Retention rate
-- Student satisfaction
-- Enrollment by term and department
+Este repositorio contiene nuestro proyecto final de Minería de Datos, donde desarrollamos
+un modelo de Machine Learning para predecir la especie de flores Iris usando sus medidas.
 
-## 🚀 Features
-- Interactive filters (year, term)
-- Dynamic visualizations (line, bar, KPIs)
-- Deployed on Streamlit Cloud
+El proyecto incluye un dashboard interactivo hecho con **Streamlit**, donde se puede:
 
-## 👥 Team Members
+- Visualizar el dataset
+- Explorar los datos (gráficos, pairplots, 3D)
+- Entrenar un modelo Random Forest
+- Evaluar las métricas del modelo
+- Realizar predicciones manualmente
+- Descargar el modelo entrenado
+
+---
+
+## 👥 Integrantes
 - Kevin David Gallardo  
-- Mauricio Carrillo
+- Mauricio Carrillo  
 
-## 📚 Course Information
-- **Course:** Mineria de Datos 
-- **Professor:** José Escorcia-Gutiérrez, Ph.D.  
-- **Institution:** Universidad de la Costa  
+## 🧑‍🏫 Profesor
+José Escorcia-Gutiérrez, PhD.
 
-## 🧰 Tech Stack
+## 🧰 Tecnologías usadas
 - Python  
-- Pandas  
-- Seaborn  
 - Streamlit  
+- Scikit-Learn  
+- Seaborn / Matplotlib / Plotly  
+- Pandas  
 
-## ▶️ Run locally
+---
+
+## ▶️ Cómo ejecutar el proyecto
+
+1. Instalar dependencias:
+
 ```bash
 pip install -r requirements.txt
-streamlit run app.py
