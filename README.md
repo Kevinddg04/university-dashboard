@@ -15,7 +15,7 @@ El proyecto incluye un dashboard interactivo hecho con **Streamlit**, donde se p
 ---
 
 ## 👥 Integrantes
-- Kevin David Gallardo  
+- Kevin Diaz  
 - Mauricio Carrillo  
 
 ## 🧑‍🏫 Profesor
