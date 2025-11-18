@@ -19,7 +19,7 @@ El proyecto incluye un dashboard interactivo hecho con **Streamlit**, donde se p
 - Mauricio Carrillo  
 
 ## 🧑‍🏫 Profesor
-José Escorcia-Gutiérrez, PhD.
+José Escorcia-Gutiérrez
 
 ## 🧰 Tecnologías usadas
 - Python  
